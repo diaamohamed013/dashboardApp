@@ -1,0 +1,123 @@
+$linksColor: #5f6165;
+$logoBgColor: #a162f7;
+$logoTextColor: #1f2128;
+
+@mixin borderRadius($r) {
+    border-radius: $r;
+    -webkit-border-radius: $r;
+    -moz-border-radius: $r;
+    -ms-border-radius: $r;
+    -o-border-radius: $r;
+}
+
+@mixin Transition($t) {
+    transition: all $t;
+    -webkit-transition: all $t;
+    -moz-transition: all $t;
+    -ms-transition: all $t;
+    -o-transition: all $t;
+}
+
+.commomProperties {
+    font: {
+        size: 14px;
+        weight: 500;
+    }
+    line-height: 18px;
+    padding: 7px 8px;
+    color: $linksColor !important;
+    display: flex;
+    gap: 9px;
+    justify-content: flex-start;
+    align-items: baseline;
+    @include borderRadius(6px);
+}
+
+/* styling for nav that will be shown in responsive*/
+.navbar {
+    display: none !important;
+    .nav-services {
+        margin-top: 25px;
+    }
+}
+/* end styling for nav that will be shown in responsive*/
+
+.navBar {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 24px;
+    justify-content: space-between;
+    .top {
+        min-height: 408px;
+        width: 100%;
+    }
+    .bottom {
+        gap: 24px;
+        width: 174px;
+        height: 92px;
+    }
+    .navbar-links {
+        .navbar-nav {
+            gap: 10px;
+            .nav-item {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.navbar-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 31px;
+    .logo {
+        display: flex;
+        justify-content: center;
+        padding: 6px 5px;
+        width: 25px;
+        height: 25px;
+        background-color: $logoBgColor;
+        @include borderRadius(6px);
+    }
+    h3 {
+        margin-bottom: 0;
+        color: $logoTextColor;
+        font-size: 24px;
+    }
+}
+
+a.nav-link {
+    @extend .commomProperties;
+    @include Transition(.3s);
+    &:hover {
+        background-color: #f3f5f8;
+    }
+}
+a.active {
+    @extend .commomProperties;
+    background-color: #f3f5f8;
+}
+
+@media screen and (max-width: 991px) {
+    .navBar {
+        display: none;
+    }
+    .navbar {
+        display: block !important;
+        margin-bottom: 8px;
+        .navbar-nav {
+            padding-top: 18px;
+        }
+    }
+    .navbar-logo {
+        margin-bottom: 0;
+    }
+}

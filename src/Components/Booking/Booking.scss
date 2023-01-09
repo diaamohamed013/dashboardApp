@@ -1,0 +1,215 @@
+$mainColor: #72767c;
+$subColor: #a162f7;
+$textColor: #242731;
+
+@mixin borderRadius($r) {
+    border-radius: $r;
+    -webkit-border-radius: $r;
+    -moz-border-radius: $r;
+    -ms-border-radius: $r;
+    -o-border-radius: $r;
+}
+
+@mixin Transition($t) {
+    transition: all $t;
+    -webkit-transition: all $t;
+    -moz-transition: all $t;
+    -ms-transition: all $t;
+    -o-transition: all $t;
+}
+
+/*styling for contact of cards and booking text*/
+.dashboard-content {
+    padding: 16px 31px;
+    background-color: #f5f5f5;
+    .row {
+        margin-top: 35px;
+        justify-content: center;
+        align-items: center;
+    }
+    h2 {
+        font: {
+            size: 30px;
+            weight: 700;
+        }
+        line-height: 39px;
+        color: $textColor;
+        margin-bottom: 30px;
+    }
+
+    /* for filters icons*/
+    .filter {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            label {
+                cursor: pointer;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 20px;
+                gap: 23px;
+                font-weight: 500;
+                width: 122px;
+                height: 36px;
+                background: #ffffff;
+                color: #5f6165;
+                @include borderRadius(22.5px);
+                i {
+                    color: #b4b4c6;
+                }
+            }
+        }
+        .filter-icon {
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-start;
+            gap: 16px;
+            .icon {
+                cursor: pointer;
+                width: 44px;
+                height: 44px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+                @include borderRadius(30px);
+                box-shadow: 0px 4px 8px rgba(53, 53, 53, 0.1);
+                &:nth-child(1) {
+                    background-color: #fff;
+                    color: #5f6165;
+                    @include Transition(0.4s);
+                    &:hover {
+                        background-color: $subColor;
+                        color: #fff;
+                    }
+                }
+                &:nth-child(2) {
+                    background-color: $subColor;
+                    color: #fff;
+                }
+                i {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    /*for cards of cars*/
+    .car-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 10px;
+        background: #ffffff;
+        @include borderRadius(16px);
+        .car-card-top {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 36px;
+            h3 {
+                font: {
+                    weight: 700;
+                    size: 18px;
+                }
+                line-height: 23px;
+                color: $textColor;
+                margin-bottom: 0;
+            }
+            i {
+                font-size: 20px;
+                color: #a4a5a6;
+                @include Transition(0.3s);
+                &:hover {
+                    color: #f84f56;
+                }
+            }
+        }
+        p {
+            line-height: 21px;
+            color: $mainColor;
+        }
+        img {
+            height: 115px;
+            width: 100%;
+        }
+        .card-car-bottom {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            .bottom-service {
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                .service {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    span {
+                        font-size: 18px;
+                        color: $mainColor;
+                        line-height: 23px;
+                    }
+                    i {
+                        color: $subColor;
+                        font-size: 17px;
+                    }
+                }
+            }
+            .bottom-price {
+                p {
+                    margin-bottom: 0;
+                    font: {
+                        size: 18px;
+                        weight: 500;
+                    }
+                    color: $textColor;
+                    span {
+                        color: $mainColor;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+}
+/*end styling for contact of cards and booking text*/
+
+@media screen and (max-width: 913px) {
+
+    .dashboard-content {
+        padding: 16px 20px;
+        .filter {
+            .filter-icon {
+                margin: 25px 0 15px 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 537px) and (min-width: 308px) {
+    .dashboard-content {
+        .filter {
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            .filter-icon {
+                margin-left: 8px;
+            }
+        }
+    }
+}

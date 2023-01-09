@@ -1,0 +1,116 @@
+$mainColor: #72767c;
+$searchColor: #7c7c8d;
+$textColor: #242731;
+
+
+@mixin borderRadius($r) {
+    border-radius: $r;
+    -webkit-border-radius: $r;
+    -moz-border-radius: $r;
+    -ms-border-radius: $r;
+    -o-border-radius: $r;
+}
+
+/*styling for search bar and user info*/
+.userBar {
+    background-color: #fff;
+    padding: 16px 31px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    .search {
+        background: #f5f4f6;
+        padding: 12px 14px;
+        gap: 10px;
+        display: flex;
+        align-items: baseline;
+        @include borderRadius(8px);
+        i {
+            font-size: 18px;
+            color: $searchColor;
+        }
+        label {
+            position: relative;
+            input {
+                font: {
+                    weight: 500;
+                    size: 16px;
+                }
+                line-height: 21px;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                width: 358px;
+                padding-left: 10px;
+                color: $searchColor;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                width: 2px;
+                height: 22px;
+                background: #ef9011;
+                left: 0;
+                top: 2px;
+                @include borderRadius(4px);
+            }
+        }
+    }
+    .userInfo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 25px;
+        .userIcon {
+            position: relative;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i {
+                font-size: 20px;
+                color: $mainColor;
+            }
+            &::before {
+                position: absolute;
+                content: "";
+                width: 9px;
+                height: 9px;
+                left: 12px;
+                top: 3px;
+                background: #ff5e6f;
+                border: 1.5px solid #ffffff;
+                @include borderRadius(50%);
+            }
+        }
+        img {
+            @include borderRadius(50%);
+        }
+    }
+}
+
+@media screen and (max-width: 913px) {
+    .userBar {
+        padding: 16px 20px;
+        background-color: $textColor;
+        .search {
+            label {
+                input {
+                    width: 50%;
+                }
+            }
+        }
+        .userInfo {
+            .userIcon {
+                margin-left: 5px;
+                gap: 10px;
+                i {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
